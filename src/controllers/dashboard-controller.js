@@ -15,7 +15,7 @@ export const dashboardController = {
   addCity: {
     handler: async function (request, h) {
       const newCity = {
-        title: request.payload.title,
+        cityName: request.payload.cityName,
       };
       await db.cityStore.addCity(newCity);
       return h.redirect("/dashboard");

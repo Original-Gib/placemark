@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { venueMemStore } from "./venue-mem-store.js";
 
 let cities = [];
 
@@ -14,7 +15,9 @@ export const cityMemStore = {
   },
 
   async getCityById(id) {
-    return city.find((city) => city._id === id);
+    const list = cities.find((city) => city._id === id);
+    list.venues = await venueMemStore.getVenuesByCityId(list._id);
+    return list;
   },
 
   async deleteCityById(id) {
