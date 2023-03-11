@@ -4,6 +4,7 @@
       <th>Venue</th>
       <th>Street</th>
       <th>Genre</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,10 @@
         </td>
         <td>
           {{genre}}
+        </td>
+        <td>
+            <a href="/city/{{../city._id}}/deletevenue/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
         </td>
       </tr>
     {{/each}}

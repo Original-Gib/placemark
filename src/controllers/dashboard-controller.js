@@ -25,4 +25,12 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+
+  deleteCity: {
+    handler: async function (request, h) {
+      const city = await db.cityStore.getCityById(request.params.id);
+      await db.cityStore.deleteCityById(city._id);
+      return h.redirect("/dashboard");
+    },
+  },
 };

@@ -24,4 +24,12 @@ export const cityController = {
       return h.redirect(`/city/${city._id}`);
     },
   },
+
+  deleteVenue: {
+    handler: async function (request, h) {
+      const city = await db.cityStore.getCityById(request.params.id);
+      await db.venueStore.deleteVenue(request.params.venueid);
+      return h.redirect(`/city/${city._id}`);
+    },
+  },
 };

@@ -21,8 +21,8 @@ export const cityMemStore = {
   },
 
   async deleteCityById(id) {
-    const index = city.findIndex((city) => city._id === id);
-    city.splice(index, 1);
+    const index = cities.findIndex((city) => city._id === id);
+    cities.splice(index, 1);
   },
 
   async deleteAllCities() {
