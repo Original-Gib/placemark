@@ -28,4 +28,8 @@ export const cityMemStore = {
   async deleteAllCities() {
     cities = [];
   },
+
+  async getUserCities(userid) {
+    return cities.filter((city) => city.userid === userid);
+  },
 };
