@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "firstName": "Adam",
+      "lastName": "Gibson",
+      "email": "adam@gmail.com",
+      "password": "test",
+      "_id": "21749e0b-9d3d-4ccd-8033-2eb41d558755"
+    }
+  ]
+}
