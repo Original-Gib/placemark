@@ -16,13 +16,16 @@ export const cityMemStore = {
 
   async getCityById(id) {
     const list = cities.find((city) => city._id === id);
-    list.venues = await venueMemStore.getVenuesByCityId(list._id);
-    return list;
+    if (list) {
+      list.venues = await venueMemStore.getVenuesByCityId(list._id);
+      return list;
+    }
+    return null;
   },
 
   async deleteCityById(id) {
     const index = cities.findIndex((city) => city._id === id);
-    cities.splice(index, 1);
+    if (index !== -1) cities.splice(index, 1);
   },
 
   async deleteAllCities() {
