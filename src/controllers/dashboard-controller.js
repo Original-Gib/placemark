@@ -1,43 +1,43 @@
 import { db } from "../models/db.js";
-import { CitySpec } from "../models/joi-schemas.js";
+import { CategorySpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const cities = await db.cityStore.getUserCities(loggedInUser._id);
+      const categories = await db.categoryStore.getUserCategories(loggedInUser._id);
       const viewData = {
-        title: "VenueViewer Dashboard",
+        title: "PlaceMark Dashboard",
         user: loggedInUser,
-        cities: cities,
+        categories: categories,
       };
       return h.view("dashboard-view", viewData);
     },
   },
 
-  addCity: {
+  addCategory: {
     validate: {
-      payload: CitySpec,
+      payload: CategorySpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
-        return h.view("dashboard-view", { title: "Add Playlist error", errors: error.details }).takeover().code(400);
+        return h.view("dashboard-view", { title: "Add Category error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const newCity = {
+      const newCategory = {
         userid: loggedInUser._id,
-        cityName: request.payload.cityName,
+        categoryName: request.payload.categoryName,
       };
-      await db.cityStore.addCity(newCity);
+      await db.categoryStore.addCategory(newCategory);
       return h.redirect("/dashboard");
     },
   },
 
-  deleteCity: {
+  deleteCategory: {
     handler: async function (request, h) {
-      const city = await db.cityStore.getCityById(request.params.id);
-      await db.cityStore.deleteCityById(city._id);
+      const category = await db.categoryStore.getCategoryById(request.params.id);
+      await db.categoryStore.deleteCategoryById(category._id);
       return h.redirect("/dashboard");
     },
   },

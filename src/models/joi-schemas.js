@@ -12,12 +12,11 @@ export const UserCredentialsSpec = {
   password: Joi.string().required(),
 };
 
-export const VenueSpec = {
-  venueName: Joi.string().required(),
-  street: Joi.string().required(),
-  genre: Joi.string().required(),
+export const PlacemarkSpec = {
+  placemarkName: Joi.string().required(),
+  description: Joi.string().required(),
 };
 
-export const CitySpec = {
-  cityName: Joi.string().required(),
+export const CategorySpec = {
+  categoryName: Joi.string().required(),
 };

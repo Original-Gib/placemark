@@ -1,0 +1,22 @@
+{
+  "placemarks": [
+    {
+      "placemarkName": "whelans",
+      "description": "venue",
+      "_id": "df77a333-6da5-41fd-b4dd-34cf7b275a17",
+      "categoryid": "b8160657-ca34-457c-ab6c-a510e9743025"
+    },
+    {
+      "placemarkName": "moes",
+      "description": "tavern",
+      "_id": "cf76efa9-28fa-449f-bfbd-e78ccdefd268",
+      "categoryid": "aa7948bd-4fed-4d67-ab2a-00d0229bc6cb"
+    },
+    {
+      "placemarkName": "whelans",
+      "description": "tavern",
+      "_id": "8c73a8d5-87d6-48a9-b4c1-cbcc053e8eb4",
+      "categoryid": "1d2b0588-9a30-4896-8f48-0cc75a665602"
+    }
+  ]
+}

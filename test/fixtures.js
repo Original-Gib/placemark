@@ -26,18 +26,42 @@ export const testUsers = [
   },
 ];
 
-export const dublin = {
-  cityName: "Dublin",
+export const musicCategory = {
+  categoryName: "music",
 };
 
-export const cities = [
+export const location = {
+  placemarkName: "NUIM",
+  description: "my first college",
+};
+
+export const testCategories = [
   {
-    cityName: "Dublin",
+    categoryName: "music",
   },
   {
-    cityName: "London",
+    categoryName: "health",
   },
   {
-    cityName: "Paris",
+    categoryName: "film",
+  },
+];
+
+export const pubCategory = {
+  categoryName: "pubs",
+};
+
+export const testPlacemarks = [
+  {
+    placemarkName: "Moes",
+    description: "Tavern",
+  },
+  {
+    placemarkName: "Bushy Park",
+    description: "park",
+  },
+  {
+    placemarkName: "The boat",
+    description: "rivers",
   },
 ];

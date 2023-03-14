@@ -5,13 +5,13 @@ export const accountsController = {
   index: {
     auth: false,
     handler: function (request, h) {
-      return h.view("main", { title: "Welcome to VenueViewer" });
+      return h.view("main", { title: "Welcome to PlaceMark" });
     },
   },
   showSignup: {
     auth: false,
     handler: function (request, h) {
-      return h.view("signup-view", { title: "Sign up for VenueViewer" });
+      return h.view("signup-view", { title: "Sign up for PlaceMark" });
     },
   },
   signup: {
@@ -32,7 +32,7 @@ export const accountsController = {
   showLogin: {
     auth: false,
     handler: function (request, h) {
-      return h.view("login-view", { title: "Login to VenueViewer" });
+      return h.view("login-view", { title: "Login to PlaceMark" });
     },
   },
   login: {

@@ -1,7 +1,7 @@
 {
-  "name": "venueviewer",
+  "name": "placemark",
   "version": "0.1.0",
-  "description": "VenueViewer: A Hapi/Node application for saving your favourite Music Venues",
+  "description": "PlaceMark: A Hapi/Node application for saving your favourite intersting locations",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
