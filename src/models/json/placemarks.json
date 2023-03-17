@@ -3,20 +3,20 @@
     {
       "placemarkName": "Moes",
       "description": "Tavern",
-      "_id": "03e6961a-02a6-4db1-a3bb-c3d4274a755c",
-      "categoryid": "88f42ef1-1c7c-4e6f-ad31-1485989f900d"
+      "_id": "018502d5-a47d-4fea-9854-4d2370d97a0a",
+      "categoryid": "f9dbaf83-c4fd-4ac0-a4cd-fb5b9eb9bff0"
     },
     {
       "placemarkName": "Bushy Park",
       "description": "park",
-      "_id": "dfa5289a-1375-48b4-ac85-3b8d74388065",
-      "categoryid": "88f42ef1-1c7c-4e6f-ad31-1485989f900d"
+      "_id": "228f4687-8f3c-4c3d-a5b0-5878d24cec71",
+      "categoryid": "f9dbaf83-c4fd-4ac0-a4cd-fb5b9eb9bff0"
     },
     {
       "placemarkName": "The boat",
       "description": "rivers",
-      "_id": "ddc9ee1f-ddb1-4445-b755-65c486784650",
-      "categoryid": "88f42ef1-1c7c-4e6f-ad31-1485989f900d"
+      "_id": "a5181f4c-bf24-4cc3-9a33-01e2f13c319e",
+      "categoryid": "f9dbaf83-c4fd-4ac0-a4cd-fb5b9eb9bff0"
     }
   ]
 }

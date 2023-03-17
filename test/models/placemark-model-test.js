@@ -3,7 +3,7 @@ import { db } from "../../src/models/db.js";
 import { testCategories, testPlacemarks, musicCategory, location, pubCategory } from "../fixtures.js";
 import { assertSubset } from "../test-utils.js";
 
-suite("Track Model tests", () => {
+suite("Placemark Model tests", () => {
   let placemarkList = null;
 
   setup(async () => {
