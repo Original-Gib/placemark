@@ -1,17 +1,21 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggie, pubCategory, testCategories, testPlacemarks, location } from "../fixtures.js";
+import { maggie, maggieCredentials, pubCategory, testCategories, testPlacemarks, location } from "../fixtures.js";
 
 suite("Placemark API tests", () => {
   let user = null;
   let dummyLocations = null;
 
   setup(async () => {
-    await placemarkService.deleteAllCategories();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllPlacemarks();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
+    await placemarkService.deleteAllCategories();
+    await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     pubCategory.userid = user._id;
     dummyLocations = await placemarkService.createCategory(pubCategory);
   });

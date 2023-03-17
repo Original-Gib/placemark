@@ -3,11 +3,13 @@ import Vision from "@hapi/vision";
 import Cookie from "@hapi/cookie";
 import Inert from "@hapi/inert";
 import HapiSwagger from "hapi-swagger";
+import jwt from "hapi-auth-jwt2";
 import Handlebars from "handlebars";
 import dotenv from "dotenv";
 import Joi from "joi";
 import path from "path";
 import { fileURLToPath } from "url";
+import { validate } from "./api/jwt-utils.js";
 import { webRoutes } from "./web-routes.js";
 import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
@@ -27,6 +29,14 @@ const swaggerOptions = {
     title: "PlaceMark API",
     version: "0.1",
   },
+  securityDefinitions: {
+    jwt: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header",
+    },
+  },
+  security: [{ jwt: [] }],
 };
 
 async function init() {
@@ -37,6 +47,7 @@ async function init() {
   await server.register(Vision);
   await server.register(Cookie);
   await server.register(Inert);
+  await server.register(jwt);
   await server.register([
     Inert,
     Vision,
@@ -67,7 +78,14 @@ async function init() {
     layout: true,
     isCached: false,
   });
-  db.init("json");
+
+  server.auth.strategy("jwt", "jwt", {
+    key: process.env.COOKIE_PASSWORD,
+    validate: validate,
+    verifyOptions: { algorithms: ["HS256"] },
+  });
+
+  db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
   await server.start();
