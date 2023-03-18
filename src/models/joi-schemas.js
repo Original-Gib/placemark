@@ -26,6 +26,7 @@ export const PlacemarkSpec = Joi.object()
     placemarkName: Joi.string().required().example("The Spire"),
     description: Joi.string().required().example("Pointy Stick in Dublin"),
     categoryid: IdSpec,
+    location: Joi.string().required().example("53.20 -6.15"),
   })
   .label("Placemark");
 

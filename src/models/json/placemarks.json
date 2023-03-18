@@ -17,6 +17,13 @@
       "description": "rivers",
       "_id": "a5181f4c-bf24-4cc3-9a33-01e2f13c319e",
       "categoryid": "f9dbaf83-c4fd-4ac0-a4cd-fb5b9eb9bff0"
+    },
+    {
+      "placemarkName": "whelans",
+      "description": "test",
+      "location": "12 12",
+      "_id": "cc483b81-9ca8-44b8-8af0-859e837c8ad2",
+      "categoryid": "11ccda76-ceb5-4c55-9f63-9c1e8aa82b1f"
     }
   ]
 }
