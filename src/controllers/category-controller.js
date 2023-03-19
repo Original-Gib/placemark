@@ -40,4 +40,17 @@ export const categoryController = {
       return h.redirect(`/category/${category._id}`);
     },
   },
+
+  viewPlacemark: {
+    handler: async function (request, h) {
+      const category = await db.categoryStore.getCategoryById(request.params.id);
+      const placemark = await db.placemarkStore.getPlacemarkById(request.params.placemarkid);
+      const viewData = {
+        title: "Placemark",
+        category: category,
+        placemark: placemark,
+      };
+      return h.view("placemark-view", viewData);
+    },
+  },
 };
