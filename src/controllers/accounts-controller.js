@@ -1,7 +1,10 @@
+// importing dependancies
+
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 
 export const accountsController = {
+  // index method to load the welcome view
   index: {
     auth: false,
     handler: function (request, h) {
@@ -14,6 +17,8 @@ export const accountsController = {
       return h.view("signup-view", { title: "Sign up for PlaceMark" });
     },
   },
+
+  // method to sign up as a user to the placemark app
   signup: {
     auth: false,
     validate: {
@@ -35,6 +40,8 @@ export const accountsController = {
       return h.view("login-view", { title: "Login to PlaceMark" });
     },
   },
+
+  // method to authenticate a user to log in. If the user details are correct a cookie will be set
   login: {
     auth: false,
     validate: {
@@ -54,6 +61,8 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+
+  // method to log the user out and clear the cookie
   logout: {
     auth: false,
     handler: function (request, h) {
@@ -62,6 +71,7 @@ export const accountsController = {
     },
   },
 
+  // method to validate a user to access the API
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {

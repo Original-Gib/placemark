@@ -1,9 +1,12 @@
+// importing dependancies for the category API
+
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { IdSpec, CategoryArraySpec, CategorySpec, CategorySpecPlus } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const categoryApi = {
+  // find method to get all categories
   find: {
     auth: {
       strategy: "jwt",
@@ -22,6 +25,7 @@ export const categoryApi = {
     notes: "Returns all categories",
   },
 
+  // find one method to get a single category
   findOne: {
     auth: {
       strategy: "jwt",
@@ -44,6 +48,7 @@ export const categoryApi = {
     response: { schema: CategorySpecPlus, failAction: validationError },
   },
 
+  // create method to create a category via the api
   create: {
     auth: {
       strategy: "jwt",
@@ -67,6 +72,7 @@ export const categoryApi = {
     response: { schema: CategorySpecPlus, failAction: validationError },
   },
 
+  // deleteOne method will delete a single category
   deleteOne: {
     auth: {
       strategy: "jwt",
@@ -88,6 +94,7 @@ export const categoryApi = {
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
+  // deleteAll method will delete all categories
   deleteAll: {
     auth: {
       strategy: "jwt",

@@ -1,7 +1,10 @@
+// importing dependencies
+
 import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
+// setting the schema for the placemark object within mongo db
 const placemarkSchema = new Schema({
   placemarkName: String,
   description: String,

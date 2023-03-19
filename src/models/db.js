@@ -1,3 +1,5 @@
+// importing dependencies
+
 import { userMemStore } from "./mem/user-mem-store.js";
 import { categoryMemStore } from "./mem/category-mem-store.js";
 import { placemarkMemStore } from "./mem/placemark-mem-store.js";
@@ -16,6 +18,7 @@ export const db = {
   categoryStore: null,
   placemarkStore: null,
 
+  // switch function to determine which DB the app should initialise
   init(storeType) {
     switch (storeType) {
       case "json":

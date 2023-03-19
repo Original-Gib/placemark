@@ -1,7 +1,10 @@
+// importing dependencies
+
 import Mongoose from "mongoose";
 
 const { Schema } = Mongoose;
 
+// setting the schema for category object in the mongo DB
 const categorySchema = new Schema({
   categoryName: String,
   userid: {

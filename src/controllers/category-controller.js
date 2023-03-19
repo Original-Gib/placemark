@@ -1,7 +1,10 @@
+// importing dependencies
+
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 
 export const categoryController = {
+  // indext method for loading the category view page
   index: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
@@ -13,6 +16,7 @@ export const categoryController = {
     },
   },
 
+  // method to add a new placemark to a category
   addPlacemark: {
     validate: {
       payload: PlacemarkSpec,
@@ -33,6 +37,7 @@ export const categoryController = {
     },
   },
 
+  // method to delete a placemark from a category
   deletePlacemark: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
@@ -40,7 +45,6 @@ export const categoryController = {
       return h.redirect(`/category/${category._id}`);
     },
   },
-
   viewPlacemark: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);

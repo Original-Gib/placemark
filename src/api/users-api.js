@@ -1,3 +1,5 @@
+// importing dependencies
+
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { UserSpec, UserSpecPlus, IdSpec, UserArray, JwtAuth, UserCredentialsSpec } from "../models/joi-schemas.js";
@@ -5,6 +7,7 @@ import { validationError } from "./logger.js";
 import { createToken } from "./jwt-utils.js";
 
 export const userApi = {
+  // method to return all users via the api
   find: {
     auth: {
       strategy: "jwt",
@@ -23,6 +26,7 @@ export const userApi = {
     response: { schema: UserArray, failAction: validationError },
   },
 
+  // method to find one user via the api
   findOne: {
     auth: {
       strategy: "jwt",
@@ -45,6 +49,7 @@ export const userApi = {
     response: { schema: UserSpecPlus, failAction: validationError },
   },
 
+  // method to create a user via the api
   create: {
     auth: false,
     handler: async function (request, h) {
@@ -65,6 +70,7 @@ export const userApi = {
     response: { schema: UserSpecPlus, failAction: validationError },
   },
 
+  // method to delete all users
   deleteAll: {
     auth: {
       strategy: "jwt",
@@ -82,6 +88,7 @@ export const userApi = {
     notes: "All userApi removed from PlaceMark",
   },
 
+  // method to authenticate a user to access the API
   authenticate: {
     auth: false,
     handler: async function (request, h) {

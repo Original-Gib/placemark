@@ -1,9 +1,12 @@
+// importing dependencies
+
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
 import { IdSpec, PlacemarkSpec, PlacemarkSpecPlus, PlacemarkArraySpec } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
 
 export const placemarkApi = {
+  // find method to retrieve all placemarks
   find: {
     auth: {
       strategy: "jwt",
@@ -22,6 +25,7 @@ export const placemarkApi = {
     notes: "Returns all placemarks",
   },
 
+  // find one method to retrieve one placemark
   findOne: {
     auth: {
       strategy: "jwt",
@@ -44,6 +48,7 @@ export const placemarkApi = {
     response: { schema: PlacemarkSpecPlus, failAction: validationError },
   },
 
+  // create method to create a placemark
   create: {
     auth: {
       strategy: "jwt",
@@ -66,6 +71,7 @@ export const placemarkApi = {
     response: { schema: PlacemarkSpecPlus, failAction: validationError },
   },
 
+  // delete all method to delete all placemarks
   deleteAll: {
     auth: {
       strategy: "jwt",
@@ -82,6 +88,7 @@ export const placemarkApi = {
     description: "Delete all placemarks",
   },
 
+  // delete one method to delete a single placemark
   deleteOne: {
     auth: {
       strategy: "jwt",

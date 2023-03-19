@@ -1,7 +1,10 @@
+// importing dependencies
+
 import { db } from "../models/db.js";
 import { CategorySpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
+  // index method for loading the dashboard and displaying all categories
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
@@ -15,6 +18,7 @@ export const dashboardController = {
     },
   },
 
+  // method to add a new category to a user
   addCategory: {
     validate: {
       payload: CategorySpec,
@@ -34,6 +38,7 @@ export const dashboardController = {
     },
   },
 
+  // method to delete a category
   deleteCategory: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);

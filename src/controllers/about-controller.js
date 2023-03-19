@@ -1,4 +1,5 @@
 export const aboutController = {
+  // method to load the about page
   index: {
     handler: function (request, h) {
       const viewData = {

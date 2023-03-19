@@ -1,9 +1,12 @@
+// importing dependancies
+
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { db } from "../models/db.js";
 
 const result = dotenv.config();
 
+// defining the create token method that will be used when authorising a user to access API
 export function createToken(user) {
   const payload = {
     id: user._id,
@@ -16,6 +19,7 @@ export function createToken(user) {
   return jwt.sign(payload, process.env.COOKIE_PASSWORD, options);
 }
 
+// function to verify a token which is passed to it
 export function decodeToken(token) {
   const userInfo = {};
   try {
@@ -28,6 +32,7 @@ export function decodeToken(token) {
   return userInfo;
 }
 
+// function to validate the JWT token
 export async function validate(decoded, request) {
   const user = await db.userStore.getUserById(decoded.id);
   if (!user) {

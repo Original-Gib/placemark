@@ -1,8 +1,11 @@
+// importing dependencies
+
 import { db } from "../models/db.js";
 import { PlacemarkSpec } from "../models/joi-schemas.js";
 import { imageStore } from "../models/image-store.js";
 
 export const placemarkController = {
+  // index method for loading the placemark view page
   index: {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
@@ -16,6 +19,7 @@ export const placemarkController = {
     },
   },
 
+  // method to upload an image against a placemark
   uploadImage: {
     handler: async function (request, h) {
       try {
@@ -43,6 +47,7 @@ export const placemarkController = {
     },
   },
 
+  // method to update the placemark
   update: {
     validate: {
       payload: PlacemarkSpec,

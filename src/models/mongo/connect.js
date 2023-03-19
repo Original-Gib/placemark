@@ -1,7 +1,10 @@
+// importing dependencies
+
 import * as dotenv from "dotenv";
 import Mongoose from "mongoose";
 
 export function connectMongo() {
+  // using the .env file configuration for connecting to Mongo
   dotenv.config();
 
   Mongoose.set("strictQuery", true);

@@ -2,6 +2,7 @@ import Joi from "joi";
 
 export const IdSpec = Joi.alternatives().try(Joi.string(), Joi.object()).description("a valid ID");
 
+// a spec setting the expected fields for a users login
 export const UserCredentialsSpec = Joi.object()
   .keys({
     email: Joi.string().email().example("homer@simpson.com").required(),
@@ -9,11 +10,13 @@ export const UserCredentialsSpec = Joi.object()
   })
   .label("UserCredentials");
 
+// setting the required fields for a user being added
 export const UserSpec = UserCredentialsSpec.keys({
   firstName: Joi.string().example("Homer").required(),
   lastName: Joi.string().example("Simpson").required(),
 }).label("UserDetails");
 
+// defining addional fields are are created when a user to added to Mongo
 export const UserSpecPlus = UserSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
@@ -21,6 +24,7 @@ export const UserSpecPlus = UserSpec.keys({
 
 export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
+// setting the schema expected when adding a placemark
 export const PlacemarkSpec = Joi.object()
   .keys({
     placemarkName: Joi.string().required().example("The Spire"),
@@ -37,6 +41,7 @@ export const PlacemarkSpecPlus = PlacemarkSpec.keys({
 
 export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
 
+// defining the schema expected when creating a category
 export const CategorySpec = Joi.object()
   .keys({
     categoryName: Joi.string().required().example("Landmarks"),
